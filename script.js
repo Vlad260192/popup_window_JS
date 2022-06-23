@@ -76,10 +76,13 @@ function bodyLock () {
 
 function bodyUnlock () {
     setTimeout(function () {
-        for (let index = 0; index < lockPadding.length; index++) {
-            const el = lockPadding[index];
-            el.style.paddingRight = '0px';
+        if (lockPadding.length > 0) {
+            for (let index = 0; index < lockPadding.length; index++) {
+                const el = lockPadding[index];
+                el.style.paddingRight = '0px';
+            }
         }
+        
         body.style.paddingRight = '0px';
         body.classList.remove('lock');
     }, timeout);
